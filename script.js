@@ -28,22 +28,83 @@ loco()
 
 //=============ANIMATIONS==================
 
-gsap.from(".page1 .hlo span",{
-    y:"100%",
-    duration:1,
+var tloader = gsap.timeline({
+  scrollTrigger:{
+    scroller:".main",
+    trigger:".loader-in",
+    delay:2,
+    duration:2
+  }
+  
+})
+tloader.from(".l1",{
+  display:"initial",
+})
+tloader.to(".l2",{
+  display:"initial",
+})
+tloader.to(".l3",{
+  display:"initial",
+})
+tloader.to(".l4",{
+  display:"initial",
+})
+tloader.to(".l5",{
+  display:"initial",
+})
+tloader.to(".l6",{
+  display:"initial",
+})
+tloader.to(".l7",{
+  display:"initial",
+})
+tloader.to(".l8",{
+  display:"initial",
 })
 
-gsap.to(".nav",{
-    y:-50,
-    scrollTrigger:{
-        trigger:".nav",
-        scroller:".main",
-        scrub:2,
-        markers:true,
-        start:"top -20%",
-        end:"top -50%"
-    }
+
+
+
+var tl = gsap.timeline({
+  scrollTrigger:{
+    scroller:'.main',
+    trigger:'.page1',
+    start:'10% top',
+    scrub:2,
+    //markers:true,
+    end:'top -2%',
+  }
 })
+tl.to('.nav',{
+  y:-200,
+  duration:5,
+  delay:1
+})
+gsap.to(".loader",{
+  y:"-100%",
+  delay:2,
+  duration:1
+})
+
+
+gsap.from("#h", {
+  duration: 1,
+  y:1000,
+  delay:2,
+  stagger: 0.1
+});
+
+gsap.from("#p3-l",{
+  duration:1,
+  y:200,
+  stagger:0.1,
+  scrollTrigger:{
+    scroller:".main",
+    trigger:"#p3-l",
+  }
+})
+
+
 gsap.from(".page2 video",{
     width:"40%",
     height:"40%",
@@ -55,4 +116,36 @@ gsap.from(".page2 video",{
         start:"top 100%",
         end:"top 0%"
     }
+})
+
+
+gsap.to(".page5-content1 .p5-slid",{
+  transform:"translateX(-130%)",
+  scrollTrigger:
+  {   
+      trigger:".page5-content1 .p5-slid h1",
+      scroller:".main",
+      scrub:2,
+      markers:true,
+      start:"top -10%",
+      end:"top -150%",
+      pin:true,
+      duration:3
+  }
+})
+
+gsap.to(".p5-slid img",{
+  x:-100,
+  transform:"translateX(-130%)",
+  scrollTrigger:
+  {   
+      trigger:".p5-slid img",
+      scroller:".main",
+      scrub:2,
+      markers:true,
+      start:"top -10%",
+      end:"top -150%",
+      pin:true,
+      duration:2
+  }
 })
